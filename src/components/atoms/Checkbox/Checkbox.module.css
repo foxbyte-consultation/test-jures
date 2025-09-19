@@ -1,0 +1,57 @@
+.container {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 22px; /* チェックボックスのサイズを調整 */
+}
+
+/* 本物のチェックボックスを隠す */
+.realCheckbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* 見た目用のカスタムチェックボックス */
+.customCheckbox {
+  position: relative;
+  height: 1em;
+  width: 1em;
+  background-color: #fff;
+  border: 2px solid #ffaddd; /* 可愛いピンクの枠線 */
+  border-radius: 6px; /* 少し丸める */
+  transition: background-color 0.2s, border-color 0.2s;
+  margin-right: 0.5em; /* テキストとの間隔 */
+}
+
+/* ホバー時に色を少し変える */
+.container:hover .customCheckbox {
+  border-color: #ff87c7;
+}
+
+/* チェックが入ったときのスタイル */
+.realCheckbox:checked + .customCheckbox {
+  background-color: #ffaddd;
+  border-color: #ff87c7;
+}
+
+/* チェックマーク (::after疑似要素で作成) */
+.customCheckbox::after {
+  content: '';
+  position: absolute;
+  display: none;
+  left: 0.28em;
+  top: 0.05em;
+  width: 0.3em;
+  height: 0.6em;
+  border: solid white;
+  border-width: 0 0.2em 0.2em 0;
+  transform: rotate(45deg);
+}
+
+/* チェックが入ったときにチェックマークを表示 */
+.realCheckbox:checked + .customCheckbox::after {
+  display: block;
+}

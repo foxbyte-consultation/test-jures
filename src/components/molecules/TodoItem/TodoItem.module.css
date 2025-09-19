@@ -1,0 +1,80 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.text {
+  flex-grow: 1;
+  font-size: 16px;
+  color: #333;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+/* --- Status Modifiers --- */
+
+.isCompleted {
+  background-color: #e8f5e9; /* 薄い緑 */
+}
+
+.isCompleted .text {
+  color: #81c784; /* 緑 */
+  text-decoration: line-through;
+}
+
+/* --- Importance Modifiers --- */
+/*
+  重要度に応じて青みを加える。
+  重要度1 (デフォルト) は透明、重要度が増すにつれて青が濃くなる。
+  rgbaの最後の値(alpha)で透明度を調整。
+*/
+.importance1 {
+  border-color: rgba(144, 202, 249, 0); /* 青、ほぼ透明 */
+}
+.importance2 {
+  border-color: rgba(144, 202, 249, 0.5); /* 青、半透明 */
+}
+.importance3 {
+  border-color: rgba(144, 202, 249, 1); /* 青、不透明 */
+}
+.importance4 {
+  border-color: rgba(100, 181, 246, 1);
+  box-shadow: 0 0 8px rgba(100, 181, 246, 0.5);
+}
+.importance5 {
+  border-color: rgba(66, 165, 245, 1);
+  box-shadow: 0 0 12px rgba(66, 165, 245, 0.7);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto; /* 右端に寄せる */
+}
+
+.deleteButton {
+  background-color: #ffcdd2; /* 薄い赤 */
+  color: #c62828; /* 濃い赤 */
+  border: none;
+  border-radius: 50%; /* 丸くする */
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+.deleteButton:hover {
+  background-color: #ef9a9a; /* 少し濃い赤 */
+}

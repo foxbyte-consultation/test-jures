@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #e0e0e0; /* デフォルトは灰色 */
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.dot:hover {
+  transform: scale(1.2);
+}
+
+.dot.isActive {
+  background-color: #90caf9; /* 選択済みは水色 */
+}
